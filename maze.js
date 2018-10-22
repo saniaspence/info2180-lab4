@@ -21,6 +21,7 @@ window.onload = function(){
 		for (i=0;i<boundaries.length;i++){
 			boundaries[i].classList.add("youlose")
 		}
+		alert("You Lose!");
 
 	});
 	}
@@ -33,7 +34,7 @@ window.onload = function(){
 
 	start.addEventListener("click", function(){
 		lose = false;
-		for (var i=0;i<boundaries.length;i++){
+		for (let i=0;i<boundaries.length;i++){
 				boundaries[i].classList.remove("youlose");
 			}
 	});
