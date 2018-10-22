@@ -8,6 +8,7 @@ window.onload = function(){
 	};
 };*/
 lose = false;
+alreadylost = false;
 
 window.onload = function(){
 
@@ -21,7 +22,10 @@ window.onload = function(){
 		for (i=0;i<boundaries.length;i++){
 			boundaries[i].classList.add("youlose")
 		}
-		alert("You Lose!");
+		if(alreadylost == false){
+			alert("You Lose!");
+			alreadylost = true;
+		}
 
 	});
 	}
@@ -34,6 +38,7 @@ window.onload = function(){
 
 	start.addEventListener("click", function(){
 		lose = false;
+		alreadylost = false;
 		for (let i=0;i<boundaries.length;i++){
 				boundaries[i].classList.remove("youlose");
 			}
