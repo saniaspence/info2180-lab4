@@ -13,6 +13,7 @@ window.onload = function(){
 
 	const boundaries = document.getElementById("maze").querySelectorAll(".boundary");
 	const end = document.getElementById("end");
+	const start = document.getElementById("start");
 
 	for (let i=0;i<boundaries.length;i++){
 	boundaries[i].addEventListener("mouseover", function(){
@@ -28,6 +29,13 @@ window.onload = function(){
 		if (lose == false){
 			alert("You Win!");
 		}
+	});
+
+	start.addEventListener("click", function(){
+		lose = false;
+		for (var i=0;i<boundaries.length;i++){
+				boundaries[i].classList.remove("youlose");
+			}
 	});
 
 };
