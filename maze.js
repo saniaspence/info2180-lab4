@@ -14,6 +14,7 @@ window.onload = function(){
 	const boundaries = document.getElementById("maze").querySelectorAll(".boundary");
 	const end = document.getElementById("end");
 	const start = document.getElementById("start");
+	const maze = document.getElementById("maze");
 
 	for (let i=0;i<boundaries.length;i++){
 	boundaries[i].addEventListener("mouseover", function(){
@@ -34,10 +35,19 @@ window.onload = function(){
 
 	start.addEventListener("click", function(){
 		lose = false;
-		document.getElementById("status").innerHTML = "Move your mouse over the &quot;S&quot; to begin.";
+		document.getElementById("status").textContent = "Move your mouse over the &quot;S&quot; to begin.";
 		for (let i=0;i<boundaries.length;i++){
 				boundaries[i].classList.remove("youlose");
 			}
 	});
+
+	maze.onmouseleave = function(){
+		document.getElementById("status").textContent = "You Lose!";
+		for (i=0;i<boundaries.length;i++){
+				boundaries[i].classList.add("youlose")
+		}
+		lose = true;
+	}
+
 
 };
