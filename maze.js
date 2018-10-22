@@ -8,6 +8,7 @@ window.onload = function(){
 	};
 };*/
 lose = false;
+winner = false;
 
 window.onload = function(){
 
@@ -18,35 +19,40 @@ window.onload = function(){
 
 	for (let i=0;i<boundaries.length;i++){
 	boundaries[i].addEventListener("mouseover", function(){
-		lose = true;
-		for (i=0;i<boundaries.length;i++){
-			boundaries[i].classList.add("youlose")
+		if (winner == false){
+			lose = true;
+			for (i=0;i<boundaries.length;i++){
+				boundaries[i].classList.add("youlose")
+			}
+			document.getElementById("status").textContent = "You Lose!";
 		}
-		document.getElementById("status").textContent = "You Lose!";
-
 	});
 	}
 
 	end.addEventListener("mouseover", function(){
 		if (lose == false){
 			document.getElementById("status").textContent = "You Win!";
+			winner = true;
 		}
 	});
 
 	start.addEventListener("click", function(){
 		lose = false;
-		document.getElementById("status").textContent = "Move your mouse over the &quot;S&quot; to begin.";
+		winner = false;
+		document.getElementById("status").innerHTML = "Move your mouse over the &quot;S&quot; to begin.";
 		for (let i=0;i<boundaries.length;i++){
 				boundaries[i].classList.remove("youlose");
 			}
 	});
 
 	maze.onmouseleave = function(){
-		document.getElementById("status").textContent = "You Lose!";
-		for (i=0;i<boundaries.length;i++){
-				boundaries[i].classList.add("youlose")
+		if (winner == false){
+			document.getElementById("status").textContent = "You Lose!";
+			for (i=0;i<boundaries.length;i++){
+					boundaries[i].classList.add("youlose")
+			}
+			lose = true;
 		}
-		lose = true;
 	}
 
 
