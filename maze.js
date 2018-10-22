@@ -8,7 +8,6 @@ window.onload = function(){
 	};
 };*/
 lose = false;
-alreadylost = false;
 
 window.onload = function(){
 
@@ -22,23 +21,20 @@ window.onload = function(){
 		for (i=0;i<boundaries.length;i++){
 			boundaries[i].classList.add("youlose")
 		}
-		if(alreadylost == false){
-			alert("You Lose!");
-			alreadylost = true;
-		}
+		document.getElementById("status").textContent = "You Lose!";
 
 	});
 	}
 
 	end.addEventListener("mouseover", function(){
 		if (lose == false){
-			alert("You Win!");
+			document.getElementById("status").textContent = "You Win!";
 		}
 	});
 
 	start.addEventListener("click", function(){
 		lose = false;
-		alreadylost = false;
+		document.getElementById("status").innerHTML = "Move your mouse over the &quot;S&quot; to begin.";
 		for (let i=0;i<boundaries.length;i++){
 				boundaries[i].classList.remove("youlose");
 			}
